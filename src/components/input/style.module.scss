@@ -1,0 +1,61 @@
+
+@use "../index";
+
+  $main-color: index.$light-grey;
+  $focus-color: index.$blue;
+  $error-color: index.$red;
+
+.wrapper{
+  position: relative;
+  width: 328px;
+}
+
+input{
+  box-sizing: border-box;
+  outline:none;
+  height: 56px;
+  width: 100%;
+  padding-left: 20px;
+  border: 2px solid  $main-color;
+  border-radius: 5px;
+  font-size: 1em;
+  &:focus{
+    border-color: $focus-color;
+    & + label{
+      color: $focus-color;
+    }
+  }
+  &.error{
+    border-color: $error-color!important;
+    & + label{
+      color: $error-color;
+    }
+  }
+}
+
+.label{
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  font-family: 'T-Star Pro';
+  font-size: 16px;
+  font-weight: 500;
+  color: $main-color;
+  transition: 0.3s;
+  &-focus{
+    position: absolute;
+    background-color: #fff;
+    top: -10px;
+    left: 16px;
+    font-size: 12px;
+    font-weight: 300;
+    padding: 0 2px;
+    transition: 0.3s;
+  }
+  &:hover{
+    cursor: text;
+  }
+}
+
+
+

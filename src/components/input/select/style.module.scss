@@ -1,0 +1,52 @@
+
+@use '../../index';
+
+  $main-color: index.$light-grey;
+  $focus-color: index.$blue;
+
+.select_btn{
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  cursor: pointer;
+  & > svg{
+    width: 100%;
+    transition: 0.3s;
+    & > path{
+      stroke: $main-color;
+    }
+    & .focused{
+      stroke: $focus-color;
+    }
+  }
+}
+
+.rotated{
+  transform: rotate(180deg);
+}
+
+.list{
+  position: absolute;
+  right: -16px;
+  top: 40px;
+  margin: 0;
+  padding: 5px 0;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  z-index: 10;
+  & > *{
+    list-style-type: none;
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 2px;
+    max-width: 100%;
+    background-color: #fff;
+    &:hover{
+      background-color: $main-color;
+      cursor: pointer;
+    }
+  }
+}
+

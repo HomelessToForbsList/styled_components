@@ -1,0 +1,26 @@
+
+
+  $blue:#10A8C9;
+  $red: #D82045;
+  $green: #03D087;
+  $orange: #F2994A;
+
+  $milk-grey: #F9F9FA;
+  $light-grey: #D7DBE2;
+  $middle-grey: #9CA4B3;
+  $dark-grey:#515B6C;
+
+  $middle-navy: #263650;
+  $dark-navy: #10203B;
+
+
+  @font-face {
+    font-family: 'T-Star Pro';
+    src: url('./font/T-StarPro-Medium.eot');
+    src: local('./fontT-Star Pro Medium'), local('T-StarPro-Medium'),
+        url('./font/T-StarPro-Medium.woff2') format('woff2'),
+        url('./font/T-StarPro-Medium.woff') format('woff'),
+        url('./font/T-StarPro-Medium.ttf') format('truetype');
+    font-style: normal;
+    font-display: swap;
+  }
