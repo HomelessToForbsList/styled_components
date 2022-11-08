@@ -1,0 +1,52 @@
+@use'../index.scss';
+
+$checkbox: index.$blue;
+$main-color: index.$middle-grey;
+
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: 0px 4px 26px -8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+  margin-block: 0;
+  width: 100%;
+  max-width: 328px;
+}
+
+.option{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 10px 0;
+  & > :first-child{
+    cursor: pointer;
+    position:absolute;
+    opacity: 0;
+    margin-left: 0.25em;
+    &:checked + label::before{
+      content: '';
+      transform-origin: bottom left;
+      clip-path: polygon(28% 38%, 41% 53%, 75% 24%, 86% 38%, 40% 78%, 15% 50%);
+      background-color: $checkbox;
+      border: 2px solid $checkbox;
+    }
+  }
+  & > :last-child{
+    cursor: pointer;
+    display: flex;
+    font-size: 1em;
+    &::before{
+      content: '';
+      width: 1.1em;
+      height: 1.1em;
+      background-color: transparent;
+      border: 2px solid $main-color;
+      border-radius: 5px;
+      margin-right: 0.5em;
+    }
+  }
+}

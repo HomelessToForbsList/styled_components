@@ -1,0 +1,65 @@
+@use '../index.scss';
+
+$bg-main: index.$orange;
+$text-color:  #fff;
+$job-position-color: index.$dark-grey;
+$name-color: index.$dark-navy;
+$email-color: index.$middle-grey;
+
+.wrapper{
+  display: flex;
+}
+
+.avatar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $bg-main;
+  border-radius: 50%;
+  color: $text-color;
+  & > p{
+    margin-block: 0;
+    line-height: 100%;
+  }
+  &.size_S{
+    width: 32px;
+    height: 32px;
+    font-size: 0.85em
+  }
+  &.size_M{
+    width: 40px;
+    height: 40px;
+    font-size: 1.25em;
+  }
+  &.size_L{
+    width: 56px;
+    height: 56px;
+    font-size: 1.5em;
+  }
+}
+
+.text-content{
+  margin-left: 14px;
+  text-align: left;
+  & >*{
+    margin-block: 0;
+  }
+  & > :first-child{
+    font-size: 0.85em;
+    line-height: 1.2em;
+    font-weight: 500;
+    color: $job-position-color;
+  }
+  & > :nth-child(2){
+    font-size: 1.25em;
+    line-height: 1.2em;
+    font-weight: 700;
+    color: $name-color;
+  }
+  & > :last-child{
+    font-size: 0.75em;
+    line-height: 1.2em;
+    font-weight: 300;
+    color: $email-color;
+  }
+}

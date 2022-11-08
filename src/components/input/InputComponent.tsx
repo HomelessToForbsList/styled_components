@@ -47,7 +47,7 @@ const Input: React.FC<InputProps> = (props) => {
     if(props.onClick) props.onClick(str)
   }
 
-  const inputClassName = classNames({
+  const inputClassName = classNames(styles.input, {
     [styles.error] : props.errorMessage,
     [styles[`size_${props.size}`]]: props.size
   }, props.className)
