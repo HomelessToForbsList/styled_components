@@ -1,4 +1,6 @@
-@use '../../index';
+@use '../index.scss';
+
+
 
   $header-color: index.$milk-grey;
   $text-color: index.$dark-navy;
@@ -7,9 +9,7 @@
 
 
   @mixin calendar-default {
-    position: absolute;
-    top: 20px;
-    right: -32px;
+    width: 354px;
     color: $text-color;
     font-family: 'T-Star Pro';
     border-radius: 15px;
@@ -17,12 +17,7 @@
     transition: 0.3s;
   }
 
-  .wrapper{
-    position: absolute;
-    top: 50%;
-    right: 16px;
-    transform: translateY(-50%);
-  }
+
 
   .icon-container{
     position: relative;
@@ -44,8 +39,7 @@
   .visible{
     @include calendar-default;
     display: block;
-    animation: rotate 500ms ease-in-out forwards;
-    transform-origin: top center;
+    animation: rotate 0.5s ease-in;
   }
 
   .calendar-head{
@@ -55,6 +49,7 @@
       font-size: 12px;
       padding-top: 10px;
       margin-block: 0;
+      text-align: center;
     }
     & > :nth-child(2){
       display: flex;
@@ -92,8 +87,8 @@
     grid-template-rows: repeat(5,46px);
     grid-template-columns: repeat(7,46px);
     gap: 2px;
-    margin: 0 10px;
-    background-color: rgb(248, 248, 248,0);
+    padding: 0 10px;
+    background-color: #fff;
     overflow: hidden;
     & >*{
       margin-block-start: 0;
@@ -101,24 +96,12 @@
       line-height: 46px;
       font-size: 20px;
       background-color: #fff;
+      text-align: center;
       &:hover{
         border: 2px solid $main-color;
         border-radius: 5px;
         position: relative;
         cursor: pointer;
-        // &::after{
-        //   content:'';
-        //   display: block;
-        //   position: absolute;
-        //   top:50%;
-        //   right: 50%;
-        //   transform: translate(50%,-50%);
-        //   width: 80px;
-        //   height: 80px;
-        //   background-color: $text-secondary;
-        //   z-index: -1;
-        //   border-radius: 50%;
-        // }
       }
     }
   }
@@ -149,5 +132,3 @@
   color: #fff;
   border-radius: 5px;
 }
-
-

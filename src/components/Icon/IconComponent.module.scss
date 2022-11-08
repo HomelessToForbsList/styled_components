@@ -1,0 +1,11 @@
+@use '../index.scss';
+
+  $main-color: index.$blue;
+
+
+.icon-container{
+  cursor: pointer;
+  & svg > path{
+    stroke: $main-color;
+  }
+}

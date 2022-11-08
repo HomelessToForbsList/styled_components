@@ -1,4 +1,4 @@
-
+@import './normalize.scss';
 
   $blue:#10A8C9;
   $red: #D82045;
@@ -16,11 +16,15 @@
 
   @font-face {
     font-family: 'T-Star Pro';
-    src: url('./font/T-StarPro-Medium.eot');
-    src: local('./fontT-Star Pro Medium'), local('T-StarPro-Medium'),
-        url('./font/T-StarPro-Medium.woff2') format('woff2'),
-        url('./font/T-StarPro-Medium.woff') format('woff'),
-        url('./font/T-StarPro-Medium.ttf') format('truetype');
+    src: url('../font/T-StarPro-Medium.eot');
+    src: local('../fontT-Star Pro Medium'), local('T-StarPro-Medium'),
+        url('../font/T-StarPro-Medium.woff2') format('woff2'),
+        url('../font/T-StarPro-Medium.woff') format('woff'),
+        url('../font/T-StarPro-Medium.ttf') format('truetype');
     font-style: normal;
     font-display: swap;
+  }
+
+  *{
+    font-family: 'T-Star Pro';
   }

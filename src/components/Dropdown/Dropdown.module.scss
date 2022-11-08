@@ -1,41 +1,18 @@
-
-@use '../../index';
+@use '../index.scss';
 
   $main-color: index.$light-grey;
   $focus-color: index.$blue;
 
-.select_btn{
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  cursor: pointer;
-  & > svg{
-    width: 100%;
-    transition: 0.3s;
-    & > path{
-      stroke: $main-color;
-    }
-    & .focused{
-      stroke: $focus-color;
-    }
-  }
-}
-
-.rotated{
-  transform: rotate(180deg);
-}
 
 .list{
-  position: absolute;
-  right: -16px;
-  top: 40px;
-  margin: 0;
+  margin-block: 0;
+  display: inline-block;
   padding: 5px 0;
   border-radius: 5px;
+  background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   z-index: 10;
+  animation: dropDown 0.5s ease-in;
   & > *{
     list-style-type: none;
     font-size: 16px;
@@ -50,3 +27,14 @@
   }
 }
 
+@keyframes dropDown {
+  0% {
+    transform: rotateX(-90deg)
+}
+70% {
+    transform: rotateX(20deg)
+}
+100% {
+    transform: rotateX(0deg)
+}
+}
