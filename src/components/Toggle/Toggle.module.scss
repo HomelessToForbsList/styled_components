@@ -1,0 +1,45 @@
+@use '../index.scss';
+
+$active-color: index.$blue;
+$unactive-color: index.$dark-grey;
+
+.switch{
+  height: 0;
+  width: 0;
+  visibility: hidden;
+  &:checked + label{
+    background: $active-color;
+    transition: 0.7s;
+    &::after{
+      left: calc(100% - 3px);
+      transform: translate(-100%,-50%);
+    }
+  }
+}
+
+.label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 34px;
+  height: 16px;
+  background: $unactive-color;
+  display: block;
+  border-radius: 8px;
+  position: relative;
+  &::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -2px;
+    transform: translate(50%,-50%);
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+  &:active::after{
+    width: 20px;
+    transition: 0.2s ease;
+  }
+}
