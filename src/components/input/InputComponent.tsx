@@ -1,5 +1,5 @@
 import React ,{useRef }from 'react'
-import styles from './InputComponent.style.module.scss'
+import styles from './InputComponent.module.scss'
 import classNames from 'classnames'
 import {InputRef, InputProps} from './InputComponent.types'
 import Password from './Password/Password'

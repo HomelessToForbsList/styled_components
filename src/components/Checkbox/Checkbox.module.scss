@@ -1,0 +1,31 @@
+@use'../index.scss';
+
+$checkbox: index.$blue;
+$main-color: index.$middle-grey;
+
+
+.checkbox{
+  cursor: pointer;
+    display: grid;
+    place-content: center;
+    &::before{
+      display: block;
+      box-sizing: border-box;
+      content: '';
+      width: 1.1em;
+      height: 1.1em;
+      background-color: #fff;
+      border: 2px solid $main-color;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+    &:checked::before{
+      content: url('~/public/img/CheckMark.svg');
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      opacity: 1;
+      background-color: $checkbox;
+      border: 2px solid $checkbox;
+    }
+}

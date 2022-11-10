@@ -1,5 +1,7 @@
 export type ToggleProps={
-  checked?: boolean;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string;
+  defaultChecked?: boolean;
   labelText?: string;
+  children?: React.ReactNode;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

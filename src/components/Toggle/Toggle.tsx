@@ -2,15 +2,21 @@ import React from 'react'
 import styles from './Toggle.module.scss'
 import { ToggleProps } from './Toggle.types'
 
-const Toggle: React.FC<ToggleProps> = ({checked, onChange, labelText}) => {
+const Toggle: React.FC<ToggleProps> = (props) => {
 
   const id = React.useId()
 
   return (
-    <div>
-      <input type="checkbox" id={`switch-${id}`} checked={checked} className={styles.switch} onChange={onChange}/>
-      <label htmlFor={`switch-${id}`} className={styles.label}>{labelText}</label>
-    </div>
+    <>
+      <input
+      type="checkbox"
+      id={'toggle-'+id}
+      defaultChecked={props.defaultChecked}
+      className={styles.switch}
+      value={props.value}
+      onChange={props.onChange}/>
+      {props.children && <label htmlFor={'toggle-'+id} className={styles.label}>{props.children}</label>}
+    </>
   )
 }
 

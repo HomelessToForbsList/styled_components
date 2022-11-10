@@ -2,24 +2,62 @@ import React, {} from 'react';
 import './App.css';
 
 import Input from './components/input/InputComponent'
-import Checkbox from './components/Checkbox/Checkbox';
+import ListComponent from './components/ListComponent/ListComponent';
 import Avatar from './components/Avatar/Avatar';
 import Typography from './components/Typography/Typography';
 import Badge from './components/Badge/Badge';
-import Toggle from './components/Toggle/Toggle';
-
-
 
 
 const App: React.FC = () => {
 
-  const[valuePassword, setValuePassword] = React.useState('')
-  const[valueSelect, setValueSelect] = React.useState('')
-  const[valueDate, setValueDate] = React.useState('')
-  const [switchChecked, setSwitchCheked] = React.useState(false)
-  
-  const options = ['Sales менеджер', 'Product менеджер', 'Администратор']
+  const [valuePassword, setValuePassword] = React.useState('')
+  const [valueSelect, setValueSelect] = React.useState('')
+  const [valueDate, setValueDate] = React.useState('')
+  const inputOptions = ['Sales manager', 'Prodact manager', 'Administrator']
+  const [checkOptions, setCheckOptions] = React.useState([
+    {option: 'Sales менеджер', cheked: false},
+    {option: 'Product менеджер', cheked: false},
+    {option: 'Администратор', cheked: false},
+  ])
+  const [radioOptions,setRadioOptions] = React.useState([
+    {option: 'Sales менеджер', cheked: true},
+    {option: 'Product менеджер', cheked: false},
+    {option: 'Администратор', cheked: false},
+  ])
+  const [toggleOptions, setToggleOptions] = React.useState([
+    {option: 'Sales менеджер', cheked: false},
+    {option: 'Product менеджер', cheked: false},
+    {option: 'Администратор', cheked: false},
+  ])
 
+  const setCheck = (e: React.ChangeEvent<HTMLInputElement>)=>{
+    const options = checkOptions.map(el=> {
+      if(el.option === e.target.value) el.cheked = e.target.checked
+      return el
+    })
+    setCheckOptions(options)
+  }
+
+  const setRadio = (e: React.ChangeEvent<HTMLInputElement>)=>{
+    const options = radioOptions.map(el=> {
+      if(el.option === e.target.value) el.cheked = e.target.checked
+      else el.cheked = false
+      return el
+    })
+    setRadioOptions(options)
+  }
+
+  const setTogle = (e: React.ChangeEvent<HTMLInputElement>)=>{
+    const options = checkOptions.map(el=> {
+      if(el.option === e.target.value) el.cheked = e.target.checked
+      return el
+    })
+    setToggleOptions(options)
+  }
+
+  //console.log(checkOptions)
+  //console.log(radioOptions)
+  //console.log(toggleOptions)
 
   return (
     <div className="App">
@@ -36,7 +74,7 @@ const App: React.FC = () => {
       <Input
         type='select'
         value={valueSelect}
-        options={options}
+        options={inputOptions}
         size='M'
         onChange={e => setValueSelect(e.target.value)}
         onClick={e => {
@@ -53,9 +91,26 @@ const App: React.FC = () => {
         onClick={(str)=>setValueDate(str)}
       />
       </section>
-      <Checkbox options={options} onChange={e=>console.log(e.target.checked)}/>
+      <section className='list-components'>
+      <ListComponent
+      type='checkbox'
+      options={checkOptions.map(el => el.option)}
+      onChange={e=>setCheck(e)}
+      />
+      <ListComponent
+      type='radio'
+      options={radioOptions.map(el => el.option)}
+      defaultCheckedElement={radioOptions.filter(el => el.cheked)[0].option}
+      onChange={e => setRadio(e)}
+      />
+      <ListComponent
+      type='toggle'
+      options={toggleOptions.map(el => el.option)}
+      onChange={e=>setTogle(e)}
+      />
+      </section>
       <Avatar name='Jonny Depp' size='L' jobPosition='manager' email='taras.borsuk@yandex.ru'/>
-      <section>
+      <section className='typography'>
       <Typography variant='heading1'>Heading 1</Typography>
       <Typography variant='heading2'>Heading 2</Typography>
       <Typography variant='heading3'>Heading 3</Typography>
@@ -67,14 +122,14 @@ const App: React.FC = () => {
       <Typography variant='bodyM'>Body M</Typography>
       <Typography variant='caption' className='small'>Caption</Typography>
       </section>
+      <section className='badge'>
       <Badge count={100}>
       <div style={{width: '150px', height: '100px', backgroundColor: 'red'}}></div>
       </Badge>
       <Badge count={1} rounded={true}>
       <div style={{width: '100px', height: '100px', backgroundColor: 'red', borderRadius: '50%'}}></div>
       </Badge>
-      <Toggle checked={switchChecked} onChange={e => setSwitchCheked(e.target.checked)}/>
-      <Toggle  onChange={e => console.log(e.target.checked)}/>
+      </section>
     </div>
   );
 }

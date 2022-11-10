@@ -5,6 +5,18 @@
   $focus-color: index.$blue;
   $error-color: index.$red;
 
+  @mixin focus-label{
+    position: absolute;
+    background-color: inherit;
+    top:0;
+    left: 16px;
+    transform: translateY(-50%);
+    font-size: 12px;
+    font-weight: 300;
+    padding: 0 2px;
+    transition: 0.3s;
+  }
+
   .container{
     display: block;
     background-color: inherit;
@@ -29,16 +41,8 @@
   &:focus{
     border-color: $focus-color;
     & + label{
+      @include focus-label;
       color: $focus-color;
-      position: absolute;
-      background-color: inherit;
-      top:0;
-      transform: translateY(-50%);
-      left: 16px;
-      font-size: 12px;
-      font-weight: 300;
-      padding: 0 2px;
-      transition: 0.3s;
     }
   }
   &.error{
@@ -73,13 +77,7 @@
   color: $main-color;
   transition: 0.3s;
   &-focus{
-    position: absolute;
-    top: -10px;
-    left: 16px;
-    font-size: 12px;
-    font-weight: 300;
-    padding: 0 2px;
-    transition: 0.3s;
+    @include focus-label;
   }
   &:hover{
     cursor: text;
