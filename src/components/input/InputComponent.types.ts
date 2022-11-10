@@ -4,7 +4,7 @@ export type InputRef = {
 
 
 export type InputProps = {
-  type: string;
+  type: 'password' | 'select' | 'datepick';
   value: string | number;
   size?: 'M'| 'L';
   className?: string;
@@ -14,5 +14,6 @@ export type InputProps = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>)=>void;
   onFocus?: (e: React.FocusEvent<HTMLInputElement>)=>void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>)=>any;
-  onClick?: (...args: any[])=>any;
+  onClick?: (arg: React.MouseEvent<HTMLElement> | string) => void;
+
 }

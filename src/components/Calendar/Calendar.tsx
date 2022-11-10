@@ -13,8 +13,6 @@ const Calendar: React.FC<CalendarProps> = (props) => {
   const day = React.useRef(defaultDate)
 
   const [range, setRange] = React.useState( fillData(day.current))
-  const [selected, setSelected] = React.useState('')
-
 
   const nextMonth = (e: React.MouseEvent<HTMLElement>)=>{
     e.stopPropagation()
@@ -56,13 +54,7 @@ const Calendar: React.FC<CalendarProps> = (props) => {
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toDateString()
 
 
-  const handleClick = (el: Date): void => {
-    setSelected(el.toLocaleDateString())
-    props.onClick(el.toLocaleDateString())
-  }
-
   return (
-
       <div className={!props.visible ? styles.calendar : styles.visible}>
         <div className={styles['calendar-head']}>
         <p className={styles.help}>double click for change year</p>
@@ -84,10 +76,10 @@ const Calendar: React.FC<CalendarProps> = (props) => {
         <div className={styles['days-container']}>
           {range.map(el=>
           <p key={el.toString()}
-          className={selected === el.toLocaleDateString() ? styles.selected
+          className={props.value === el.toLocaleDateString() ? styles.selected
             : el.toDateString() === today ? styles.today
             : el.getMonth() !== day.current.getMonth() ? styles['non-valid_range']: undefined}
-          onClick={()=>handleClick(el)}
+          onClick={()=>props.onClick(el.toLocaleDateString())}
           >
             {el.getDate()}
           </p>

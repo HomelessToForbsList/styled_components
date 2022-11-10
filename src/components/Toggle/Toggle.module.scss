@@ -41,8 +41,4 @@ $unactive-color: index.$dark-grey;
       transform: translate(-100%,-50%);
     }
   }
-  &:active::after{
-    width: 20px;
-    transition: 0.2s ;
-  }
 }

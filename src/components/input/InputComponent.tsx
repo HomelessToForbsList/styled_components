@@ -78,7 +78,7 @@ const Input: React.FC<InputProps> = (props) => {
       <div className={styles.option}>
       {props.type === 'password' && <Password onClick={showPassword}/>}
       {props.type === 'select'  && <Dropdown parentRef={inputEl} options={props.options} onClick={setOption}/>}
-      {props.type === 'datepick' && <DatePicker parentRef={inputEl} onClick={selectDate} />}
+      {props.type === 'datepick' && <DatePicker parentRef={inputEl} parentValue={props.value} onClick={selectDate} />}
       </div>
     </div>
     {props.errorMessage && <p className={styles['error-text']}>{props.errorMessage}</p>}

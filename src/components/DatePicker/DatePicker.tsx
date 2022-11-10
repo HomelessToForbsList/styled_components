@@ -27,7 +27,7 @@ const DatePicker: React.FC<DatePickerProps> = (props) => {
       </IconComponent>
       {visibility &&
       <Modal position={position.current} onClose={()=>setVisibility(prev=> !prev)}>
-        <Calendar visible={visibility} onClick={props.onClick}/>
+        <Calendar visible={visibility} value={props.parentValue} onClick={props.onClick}/>
       </Modal>
       }
     </div>

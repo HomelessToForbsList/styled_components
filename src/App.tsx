@@ -1,4 +1,4 @@
-import React, {} from 'react';
+import React from 'react';
 import './App.css';
 
 import Input from './components/input/InputComponent'
@@ -78,8 +78,10 @@ const App: React.FC = () => {
         size='M'
         onChange={e => setValueSelect(e.target.value)}
         onClick={e => {
-          let target = e.target as HTMLInputElement
-          if(target.textContent)setValueSelect(target.textContent)}
+          if(typeof e !== 'string'){
+            let target = e.target as HTMLInputElement
+            if(target.textContent)setValueSelect(target.textContent)}
+          }
           }
       />
       <div style={{padding: '15px', margin: '10px', border: '2px solid blue', width: '200px'}}>Value: {valueDate}</div>
@@ -88,7 +90,7 @@ const App: React.FC = () => {
         value={valueDate}
         size='L'
         onChange={e => setValueDate(e.target.value)}
-        onClick={(str)=>setValueDate(str)}
+        onClick={(str)=>{if(typeof str === 'string') setValueDate(str)}}
       />
       </section>
       <section className='list-components'>
