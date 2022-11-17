@@ -7,18 +7,14 @@ import Modal from '../Modal/Modal'
 
 import {DatePickerProps} from './DatePicker.types'
 
+import useWindowSize from '../../hooks/useWindowSize'
+
 const DatePicker: React.FC<DatePickerProps> = (props) => {
 
   const [visibility, setVisibility] = React.useState(false)
-  const position = React.useRef({top: 0, left: 0})
 
-  React.useLayoutEffect(()=>{
-    if(props.parentRef.current) {
-      const rect = props.parentRef.current.getBoundingClientRect()
-      position.current.top = rect.top+rect.height+15
-      position.current.left = rect.x
-    }
-  },[props.parentRef])
+  const position = useWindowSize(props.parentRef.current)
+
 
   return (
     <div>
@@ -26,7 +22,7 @@ const DatePicker: React.FC<DatePickerProps> = (props) => {
         <CalendarIcon/>
       </IconComponent>
       {visibility &&
-      <Modal position={position.current} onClose={()=>setVisibility(prev=> !prev)}>
+      <Modal position={position} onClose={()=>setVisibility(prev=> !prev)}>
         <Calendar visible={visibility} value={props.parentValue} onClick={props.onClick}/>
       </Modal>
       }

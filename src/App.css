@@ -32,3 +32,11 @@
   display: flex;
   gap: 20px;
 }
+
+
+.scroll{
+  width: 250px;
+  height: 250px;
+  overflow: scroll;
+  background-color: rgb(105, 104, 104);
+}

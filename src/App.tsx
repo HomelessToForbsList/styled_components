@@ -10,6 +10,7 @@ import Badge from './components/Badge/Badge';
 
 const App: React.FC = () => {
 
+
   const [valuePassword, setValuePassword] = React.useState('')
   const [valueSelect, setValueSelect] = React.useState('')
   const [valueDate, setValueDate] = React.useState('')
@@ -132,6 +133,11 @@ const App: React.FC = () => {
       <div style={{width: '100px', height: '100px', backgroundColor: 'red', borderRadius: '50%'}}></div>
       </Badge>
       </section>
+      <div className='scroll' onScroll={()=>console.log('scroll')}>
+          {[1,2,3,4,5].map(el =>
+          <div key={el} style={{height: '50px', margin: '10px', backgroundColor: '#fff'}}></div>
+            )}
+      </div>
     </div>
   );
 }
