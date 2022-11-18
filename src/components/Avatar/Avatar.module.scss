@@ -3,7 +3,7 @@
 $bg-main: index.$orange;
 $text-color:  #fff;
 $job-position-color: index.$dark-grey;
-$name-color: index.$dark-navy;
+$name-color: #fff;
 $email-color: index.$middle-grey;
 
 .wrapper{
@@ -17,8 +17,10 @@ $email-color: index.$middle-grey;
   background-color: $bg-main;
   border-radius: 50%;
   color: $text-color;
+  flex: 0 0 auto;
   & > p{
-    line-height: 100%;
+    text-align: center;
+    white-space: nowrap;
   }
   &.size_S{
     width: 32px;
@@ -40,19 +42,23 @@ $email-color: index.$middle-grey;
 .text-content{
   margin-left: 14px;
   text-align: left;
-  & > :first-child{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  white-space: nowrap;
+  & > .job-position{
     font-size: 0.85em;
     line-height: 1.4em;
     font-weight: 500;
     color: $job-position-color;
   }
-  & > :nth-child(2){
+  & > .name{
     font-size: 1.25em;
     line-height: 1.2em;
     font-weight: 700;
     color: $name-color;
   }
-  & > :last-child{
+  & > .email{
     font-size: 0.75em;
     line-height: 1.2em;
     font-weight: 300;

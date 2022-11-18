@@ -8,16 +8,9 @@ const portal = createPortalDiv()
 
 const Modal: React.FC<ModalProps> = ({children, ...props}) => {
 
-  const position: React.CSSProperties = {
-    position: 'relative',
-    top: props.position.top + 'px',
-    left: props.position.left + 'px',
-    display: 'inline-block'
-  }
-
   return ReactDom.createPortal(
     <div  className={styles.modal} onClick={props.onClose}>
-      <div style={position}>
+      <div style={props.style}>
       {children}
       </div>
     </div>

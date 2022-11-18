@@ -15,6 +15,13 @@ const DatePicker: React.FC<DatePickerProps> = (props) => {
 
   const position = useWindowSize(props.parentRef.current)
 
+  const childrenStyle: React.CSSProperties = {
+    position: 'absolute',
+    top: position.top + 'px',
+    left: position.left + 'px',
+    display: 'inline-block'
+  }
+
 
   return (
     <div>
@@ -22,7 +29,7 @@ const DatePicker: React.FC<DatePickerProps> = (props) => {
         <CalendarIcon/>
       </IconComponent>
       {visibility &&
-      <Modal position={position} onClose={()=>setVisibility(prev=> !prev)}>
+      <Modal style={childrenStyle} onClose={()=>setVisibility(prev=> !prev)}>
         <Calendar visible={visibility} value={props.parentValue} onClick={props.onClick}/>
       </Modal>
       }

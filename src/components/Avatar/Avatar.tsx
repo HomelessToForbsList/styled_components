@@ -16,11 +16,13 @@ const Avatar: React.FC<AvatarProps> = (props) => {
       <div className={avatarClassName}>
         <p>{initials}</p>
       </div>
+      {props.infoblock &&
       <div className={styles['text-content']}>
-        <p className={styles['job-position']}> {props.jobPosition}</p>
-        <p className={styles.name}>{props.name}</p>
-        <p className={styles.email}> {props.email}</p>
+      {props.jobPosition && <p className={styles['job-position']}> {props.jobPosition}</p>}
+      {props.name && <p className={styles.name}>{props.name}</p>}
+      {props.email && <p className={styles.email}> {props.email}</p>}
       </div>
+      }
     </div>
   )
 }

@@ -1,14 +1,18 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 
 import Input from './components/input/InputComponent'
 import ListComponent from './components/ListComponent/ListComponent';
 import Avatar from './components/Avatar/Avatar';
 import Typography from './components/Typography/Typography';
 import Badge from './components/Badge/Badge';
+import SideBar from './components/SideBar/SideBar';
 
 
 const App: React.FC = () => {
+
+  const [container1, setContainer1] = React.useState(false)
+  const [sideBar, setSideBar] = React.useState(true)
 
 
   const [valuePassword, setValuePassword] = React.useState('')
@@ -62,6 +66,12 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
+      <div className='buttons'>
+        <button onClick={()=> setContainer1(prev=>!prev)}>Container 1</button>
+        <button onClick={()=> setSideBar(prev=>!prev)}>SideBar</button>
+      </div >
+      {container1 &&
+      <div className='container1'>
       <section className='inputs'>
       <div style={{padding: '15px', margin: '10px', border: '2px solid blue', width: '200px'}}>Value: {valuePassword}</div>
       <Input
@@ -133,11 +143,11 @@ const App: React.FC = () => {
       <div style={{width: '100px', height: '100px', backgroundColor: 'red', borderRadius: '50%'}}></div>
       </Badge>
       </section>
-      <div className='scroll' onScroll={()=>console.log('scroll')}>
-          {[1,2,3,4,5].map(el =>
-          <div key={el} style={{height: '50px', margin: '10px', backgroundColor: '#fff'}}></div>
-            )}
-      </div>
+      </div>}
+      {sideBar &&
+      <div className='sidebar-container'>
+        <SideBar/>
+      </div>}
     </div>
   );
 }

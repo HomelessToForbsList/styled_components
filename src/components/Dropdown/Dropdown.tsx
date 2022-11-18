@@ -12,6 +12,13 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
   const [visibility, setVisibility] = React.useState(false)
   const position = useWindowSize(props.parentRef.current)
 
+  const childrenStyle: React.CSSProperties = {
+    position: 'absolute',
+    top: position.top + 'px',
+    left: position.left + 'px',
+    display: 'inline-block'
+  }
+
 
   return (
     <div>
@@ -19,7 +26,7 @@ const Dropdown: React.FC<DropdownProps> = (props) => {
         <ArrowIcon/>
       </IconComponent>
       {visibility &&
-      <Modal position={position} onClose={()=>setVisibility(prev=> !prev)}>
+      <Modal style={childrenStyle} onClose={()=>setVisibility(prev=> !prev)}>
       <ul className={styles.list}>
       {props.options?.map(el =>
       <li

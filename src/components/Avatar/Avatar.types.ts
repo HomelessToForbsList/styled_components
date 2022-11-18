@@ -5,4 +5,5 @@ export type AvatarProps ={
   className?: string;
   email?: string;
   jobPosition?: string;
+  infoblock? : boolean;
 }
