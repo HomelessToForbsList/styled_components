@@ -34,7 +34,8 @@
 
 .sidebar-container{
   display:flex;
-  flex: 1 1 100%
+  flex: 1 1 100%;
+  flex-direction: row;
 }
 
 .inputs{
@@ -63,4 +64,24 @@
   height: 250px;
   overflow: scroll;
   background-color: rgb(105, 104, 104);
+}
+
+.icon_container{
+  width: 250px;
+  height: 60px;
+  display: flex;
+  border: 1px solid blue;
+  margin: 10px;
+}
+
+.icon_container > div{
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+}
+
+.cards-container{
+  display: flex;
+  gap: 10px;
+  padding: 10px;
 }

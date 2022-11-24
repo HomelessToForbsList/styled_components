@@ -1,8 +1,10 @@
 
+type PropColor = {color?: string}
 
-const CalendarIcon: React.FC = () => {
+const CalendarIcon: React.FC<PropColor> = ({color}) => {
   return (
-      <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <div style={{width: '100%', height: '100%'}}>
+      <svg width='100%' height='100%' stroke={color || '#10A8C9'} viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M14 1V5"  strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         <path d="M6 1V5"  strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         <path d="M1 8H19"  strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -12,6 +14,7 @@ const CalendarIcon: React.FC = () => {
         <path d="M5.01316 15.729C4.87516 15.729 4.76316 15.841 4.76416 15.979C4.76416 16.117 4.87616 16.229 5.01416 16.229C5.15216 16.229 5.26416 16.117 5.26416 15.979C5.26416 15.841 5.15216 15.729 5.01316 15.729"  strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         <path d="M10.0132 15.729C9.87516 15.729 9.76316 15.841 9.76416 15.979C9.76416 16.117 9.87616 16.229 10.0142 16.229C10.1522 16.229 10.2642 16.117 10.2642 15.979C10.2642 15.841 10.1522 15.729 10.0132 15.729"  strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
+    </div>
   )
 }
 

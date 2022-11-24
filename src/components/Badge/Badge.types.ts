@@ -1,5 +1,5 @@
-export type BadgeProps={
-  count: number;
-  children: React.ReactNode;
-  rounded?: boolean;
+
+export type BadgeProps = {
+  color: 'orange' | 'bright-orange' | 'green' | 'dark-green' | 'red' | 'blue' | 'light-blue' | 'grey';
+  text: string;
 }

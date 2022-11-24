@@ -5,14 +5,17 @@ import Input from './components/input/InputComponent'
 import ListComponent from './components/ListComponent/ListComponent';
 import Avatar from './components/Avatar/Avatar';
 import Typography from './components/Typography/Typography';
-import Badge from './components/Badge/Badge';
+import Badge from './components/Badge_old/Badge';
 import SideBar from './components/SideBar/SideBar';
+import TabBar from './components/TabBar/TabBar';
+import ProductCard from './components/ProductCard/ProductCard';
 
 
 const App: React.FC = () => {
 
   const [container1, setContainer1] = React.useState(false)
-  const [sideBar, setSideBar] = React.useState(true)
+  const [sideBar, setSideBar] = React.useState(false)
+  const [cards, setCards] = React.useState(true)
 
 
   const [valuePassword, setValuePassword] = React.useState('')
@@ -64,6 +67,15 @@ const App: React.FC = () => {
   //console.log(radioOptions)
   //console.log(toggleOptions)
 
+  const productCardProps = {
+    title: 'DS-2CD2821G0 (AC24V/DC12V)',
+    src: '/img/Product-img.png',
+    code: 'SAP123877',
+    rating: 5,
+    description: '2Мп IP-камера в стандартном корпусе',
+    price: 20000
+  }
+
   return (
     <div className="App">
       <div className='buttons'>
@@ -108,13 +120,17 @@ const App: React.FC = () => {
       <ListComponent
       type='checkbox'
       options={checkOptions.map(el => el.option)}
-      onChange={e=>setCheck(e)}
+      onChange={e=>{
+        console.log(e.target.value)
+        setCheck(e)}}
       />
       <ListComponent
       type='radio'
       options={radioOptions.map(el => el.option)}
       defaultCheckedElement={radioOptions.filter(el => el.cheked)[0].option}
-      onChange={e => setRadio(e)}
+      onChange={e => {
+        console.log(e.target.value)
+        setRadio(e)}}
       />
       <ListComponent
       type='toggle'
@@ -147,7 +163,28 @@ const App: React.FC = () => {
       {sideBar &&
       <div className='sidebar-container'>
         <SideBar/>
+        <TabBar options={inputOptions} defaultSelected={inputOptions[0]}/>
       </div>}
+      {cards &&
+        <section className='cards-container'>
+          <ProductCard
+          title={productCardProps.title}
+          src=''
+          code={productCardProps.code}
+          rating={productCardProps.rating}
+          description={productCardProps.description}
+          price={productCardProps.price}
+          />
+          <ProductCard
+          title={productCardProps.title}
+          src={productCardProps.src}
+          code={productCardProps.code}
+          rating={productCardProps.rating}
+          description={productCardProps.description}
+          price={productCardProps.price}
+          />
+        </section>
+      }
     </div>
   );
 }

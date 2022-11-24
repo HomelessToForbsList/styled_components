@@ -1,30 +1,44 @@
+
 @use '../index.scss';
 
-$bg-color: green;
-$text-color: #fff;
-$size: 20px;
-
-.badge-wrapper{
-  position: relative;
-}
-
-.badge{
-  position: absolute;
-  top: 0;
-  right: 0;
-  transform: translate(50%,-50%);
+.badge-container{
   display: flex;
   justify-content: center;
-  align-items:flex-start;
-  border-radius: calc($size/2);
-  min-width: $size;
-  height: $size;
-  background-color: $bg-color;
-  font-size: 0.75rem;
-  color: $text-color;
-  & > p{
-    display: block;
-    height: 100%;
-    padding: 0 2px;
-  }
+  align-items: center;
+  padding: 4px 8px;
+  color: #fff;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.orange{
+  background-color: index.$orange;
+}
+
+.bright-orange{
+  background-color: #FF8437;
+}
+
+.green{
+  background-color: #6FCF97;
+}
+
+.dark-green{
+  background-color: #219653;
+}
+
+.red{
+  background-color: #EB5757;
+}
+
+.blue{
+  background-color: #2F80ED;
+}
+
+.light-blue{
+  background-color: #56CCF2;
+}
+
+.grey{
+  background-color: index.$dark-grey;
 }

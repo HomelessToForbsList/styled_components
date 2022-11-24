@@ -1,0 +1,30 @@
+@use '../index.scss';
+
+$bg-color: green;
+$text-color: #fff;
+$size: 20px;
+
+.badge-wrapper{
+  position: relative;
+}
+
+.badge{
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%,-50%);
+  display: flex;
+  justify-content: center;
+  align-items:flex-start;
+  border-radius: calc($size/2);
+  min-width: $size;
+  height: $size;
+  background-color: $bg-color;
+  font-size: 0.75rem;
+  color: $text-color;
+  & > p{
+    display: block;
+    height: 100%;
+    padding: 0 2px;
+  }
+}

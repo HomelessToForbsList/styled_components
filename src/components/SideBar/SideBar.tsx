@@ -13,7 +13,7 @@ import CatalogIcon from '../Icon/Icons/CatalogIcon'
 import UsersIcon from '../Icon/Icons/UsersIcon'
 import SettingsIcon from '../Icon/Icons/SettingsIcon'
 
-const options = ['Статстика', 'Проекты', 'Каталог', 'Пользователи', 'Настройки системы']
+const options = ['React JS', 'Проекты', 'Каталог', 'Пользователи', 'Настройки системы']
 const optionIcons = [<StatisticIcon/>, <ProjectsIcon/>,<CatalogIcon/>,<UsersIcon/>,<SettingsIcon/>]
 
 type OptionProps ={
@@ -23,9 +23,12 @@ type OptionProps ={
 }
 
 const Option: React.FC<OptionProps> = ({icon, text, className}) => {
+
   return (
     <li className={className === styles.hidden ? styles['option-closed'] : styles.option}>
-      <div>{icon}</div>
+      <div className={styles['menu-icon']} data-after={text}>
+        {icon}
+      </div>
       <label className={className}>
         <Typography className={className} variant='subtitleM'>{text}</Typography>
       </label>
@@ -35,7 +38,7 @@ const Option: React.FC<OptionProps> = ({icon, text, className}) => {
 
 const SideBar = () => {
 
-  const [toggleOpen, setToggleOpen] = React.useState(true)
+  const [toggleOpen, setToggleOpen] = React.useState(false)
 
   return (
     <nav className={toggleOpen ? styles.container : styles['container-closed']}>
@@ -57,7 +60,7 @@ const SideBar = () => {
       </div>
       <ul className={styles.options}>
         {options.map((el,index) =>
-          <Option text={el} icon={optionIcons[index]} className={toggleOpen ? styles.open : styles.hidden}/>
+          <Option text={el} key={el} icon={optionIcons[index]} className={toggleOpen ? styles.open : styles.hidden}/>
         )}
       </ul>
       <div className={styles['profile-wrapper']}>

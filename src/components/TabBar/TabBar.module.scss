@@ -1,0 +1,45 @@
+@use '../index.scss';
+
+$main-color: index.$blue;
+
+
+
+.tabs-container{
+  display: flex;
+  justify-content: space-between;
+  height: fit-content;
+}
+
+
+.option{
+  cursor: pointer;
+  margin: 0 9px;
+  position: relative;
+  padding: 10px;
+}
+
+.active{
+  color: $main-color;
+  &::before{
+    content: '';
+    display: block;
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: $main-color;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    animation: underline 0.5s ease;
+  }
+}
+
+@keyframes underline{
+  0%{
+    transform: scaleX(0);
+  }
+  100%{
+    transform: scaleX(1);
+  }
+}

@@ -8,6 +8,7 @@
   @mixin focus-label{
     position: absolute;
     background-color: inherit;
+    overflow: hidden;
     top:0;
     left: 16px;
     transform: translateY(-50%);

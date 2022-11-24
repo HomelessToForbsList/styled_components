@@ -70,7 +70,7 @@ const Input: React.FC<InputProps> = (props) => {
       />
       <label
         htmlFor='input'
-        className={inputEl.current && inputEl.current.value? styles['label-focus'] :styles.label}
+        className={(inputEl.current && inputEl.current.value) || props.value? styles['label-focus'] :styles.label}
         onClick={labelClick}
       >
         Текст...

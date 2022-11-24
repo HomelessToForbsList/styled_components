@@ -36,11 +36,7 @@ $open-width: 320px;
   justify-content: space-between;
   & > .logo{
     background-color: rgba(138, 138, 138, 0.33);
-    min-height: 44px;
-  }
-  & > *{
-    stroke: $main-color;
-    padding: 0;
+    height: 44px;
   }
 }
 
@@ -53,6 +49,7 @@ $open-width: 320px;
   &-open{
     width: 52px;
     justify-content: flex-end;
+    padding: 8px 14px;
     transition: all $animation-duration;
     & > *{
       transform: rotate(0deg);
@@ -61,6 +58,7 @@ $open-width: 320px;
   }
   &-closed{
     width: 62px;
+    padding: 8px 19px;
     justify-content: center;
     transition: all $animation-duration;
     & >*{
@@ -97,8 +95,9 @@ $open-width: 320px;
       justify-content: center;
       align-items: center;
       z-index: 2;
-      & >*{
-        fill: $main-color;
+      & > div{
+        display: flex;
+        align-items: center;
       }
     }
   }
@@ -169,6 +168,10 @@ $open-width: 320px;
   }
 }
 
+.options{
+  margin-bottom: 10px;
+}
+
 .profile-wrapper{
   display: flex;
   flex-direction: column;
@@ -227,4 +230,25 @@ $open-width: 320px;
     overflow: hidden;
     transition: $animation-duration;
   }
+}
+
+.menu-icon{
+  position: relative;
+  cursor: pointer;
+}
+
+.menu-icon:hover:after{
+  content: attr(data-after);
+  color: #10203B;
+  display: block;
+  position: absolute;
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1rem;
+  top: 15px;
+  left: 25px;
+  padding: 5px;
+  background-color: #fff;
+  z-index: 1;
+  border-radius: 4px;
 }

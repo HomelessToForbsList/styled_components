@@ -1,26 +1,14 @@
 
-import React, { MutableRefObject } from 'react'
+
+import React from 'react'
+import Typography from '../Typography/Typography'
 import { BadgeProps } from './Badge.types'
 import styles from './Badge.module.scss'
 
-const Badge: React.FC<BadgeProps> = ({children,count, rounded}) => {
-
-  const badgeRef: MutableRefObject<null | HTMLDivElement> = React.useRef(null)
-
-  const [value,setValue] = React.useState(0)
-
-  React.useEffect(()=>{
-    if(badgeRef.current && rounded){
-    const height = badgeRef.current.clientHeight
-    setValue(Math.sqrt(Math.pow((height/2*(Math.sqrt(2)-1)),2) / 2))
-    }
-  },[rounded])
-
-
+const Badge: React.FC<BadgeProps> = ({color, text}) => {
   return (
-    <div ref={badgeRef}  className={styles['badge-wrapper']}>
-      <p className={styles.badge} style={rounded ? {top: value, right: value} : undefined}>{count}</p>
-      {children}
+    <div className={styles['badge-container']+' '+styles[`${color}`]}>
+      <Typography variant='caption' >{text}</Typography>
     </div>
   )
 }
