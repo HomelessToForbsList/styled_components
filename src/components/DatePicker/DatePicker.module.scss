@@ -1,0 +1,106 @@
+@use '../index.scss';
+
+$header-color: index.$milk-grey;
+$text-color: index.$dark-navy;
+$main-color: index.$blue;
+$text-secondary: index.$middle-grey;
+
+.wrapper{
+  display: flex;
+  border-radius: 5px;
+  overflow: hidden;
+  color: $text-color;
+  & > :first-child{
+    width: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    & > :first-child{
+      padding: 0;
+      & > :nth-child(2){
+        background-color: $header-color;
+        padding: 0 20px 8px 20px;
+        display: flex;
+        justify-content: space-between;
+        & > *{
+          width: 46px;
+          color: $text-secondary;
+        }
+      }
+    }
+    & > :last-child{
+      background-color: #fff;
+      margin: 0;
+      padding: 20px;
+      & > *{
+        display: flex;
+        justify-content: space-between;
+        & > *{
+          width: 46px;
+          height: 46px;
+          line-height: 46px;
+        }
+      }
+    }
+  }
+}
+
+
+.calendar-head{
+  background-color: $header-color;
+  padding: 5px 20px;
+  &  .help{
+    font-size: 12px;
+    padding-top: 10px;
+    margin-block: 0;
+    text-align: center;
+  }
+  & > :nth-child(2){
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    & p{
+      font-size: 28px;
+      font-weight: 700;
+      padding: 10px 0;
+    }
+    & > :last-child{
+      transform: rotate(180deg);
+    }
+  }
+  & img{
+    cursor: pointer;
+  }
+}
+
+
+.day-now{
+  background-color: $main-color;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 20;
+  font-weight: 700;
+}
+
+.day-default{
+  background-color: #fff !important;
+  color: $text-color;
+  font-size: 20;
+  font-weight: 700;
+}
+
+.day-out_of_range{
+  color: $text-secondary;
+  font-size: 20;
+  font-weight: 700;
+}
+
+.button{
+  width: 20px;
+  height: 21px;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  padding: 0;
+}

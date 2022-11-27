@@ -3,9 +3,12 @@ import styles from './InputComponent.module.scss'
 import classNames from 'classnames'
 import {InputRef, InputProps} from './InputComponent.types'
 import Password from './Password/Password'
-import DatePicker from '../DatePicker/DatePicker'
-import Dropdown from '../Dropdown/Dropdown'
+//import DatePicker from '../DatePicker_old/DatePicker'
+//import Dropdown from '../Dropdown/Dropdown'
 
+
+import DatePicker from '../DatePicker/DatePicker'
+import Select from '../Select/Select'
 
 const Input: React.FC<InputProps> = (props) => {
 
@@ -33,11 +36,11 @@ const Input: React.FC<InputProps> = (props) => {
     }
   }
 
-  const setOption = ( e:React.MouseEvent<HTMLElement> )=>{
-    if(inputEl.current && e.currentTarget.textContent) {
-      inputEl.current.value = e.currentTarget.textContent
+  const setOption = ( value: string )=>{
+    if(inputEl.current && value) {
+      inputEl.current.value = value
     }
-    if(props.onClick) props.onClick(e)
+    if(props.onClick) props.onClick(value)
   }
 
   const selectDate = (str: string) =>{
@@ -77,8 +80,17 @@ const Input: React.FC<InputProps> = (props) => {
       </label>
       <div className={styles.option}>
       {props.type === 'password' && <Password onClick={showPassword}/>}
-      {props.type === 'select'  && <Dropdown parentRef={inputEl} options={props.options} onClick={setOption}/>}
-      {props.type === 'datepick' && <DatePicker parentRef={inputEl} parentValue={props.value} onClick={selectDate} />}
+      {(props.type === 'select' && props.options ) &&
+      <Select
+      //parentRef={inputEl}
+      options={props.options}
+      onClick={setOption}/>}
+      {props.type === 'datepick' &&
+      <DatePicker
+      //parentRef={inputEl}
+      //parentValue={props.value}
+      //defaultValue={props.value}
+      onClick={selectDate} />}
       </div>
     </div>
     {props.errorMessage && <p className={styles['error-text']}>{props.errorMessage}</p>}

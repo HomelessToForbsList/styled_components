@@ -10,12 +10,14 @@ import SideBar from './components/SideBar/SideBar';
 import TabBar from './components/TabBar/TabBar';
 import ProductCard from './components/ProductCard/ProductCard';
 
+//import Select from './components/Select/Select';
+
 
 const App: React.FC = () => {
 
   const [container1, setContainer1] = React.useState(false)
   const [sideBar, setSideBar] = React.useState(false)
-  const [cards, setCards] = React.useState(true)
+  const [cards, setCards] = React.useState(false)
 
 
   const [valuePassword, setValuePassword] = React.useState('')
@@ -76,11 +78,17 @@ const App: React.FC = () => {
     price: 20000
   }
 
+  const selectOptions = [
+  {value: 'First option', label: 'First option', subtitle: 'help'},
+  {value: 'Second option', label: 'Second option', subtitle: 'help'},
+  {value: 'Third option', label: 'Third option', subtitle: 'help'}]
+
   return (
     <div className="App">
       <div className='buttons'>
         <button onClick={()=> setContainer1(prev=>!prev)}>Container 1</button>
         <button onClick={()=> setSideBar(prev=>!prev)}>SideBar</button>
+        <button onClick={()=> setCards(prev => !prev)}>Cards</button>
       </div >
       {container1 &&
       <div className='container1'>
@@ -97,15 +105,10 @@ const App: React.FC = () => {
       <Input
         type='select'
         value={valueSelect}
-        options={inputOptions}
+        options={selectOptions}
         size='M'
         onChange={e => setValueSelect(e.target.value)}
-        onClick={e => {
-          if(typeof e !== 'string'){
-            let target = e.target as HTMLInputElement
-            if(target.textContent)setValueSelect(target.textContent)}
-          }
-          }
+        onClick={value => {setValueSelect(value)}}
       />
       <div style={{padding: '15px', margin: '10px', border: '2px solid blue', width: '200px'}}>Value: {valueDate}</div>
       <Input

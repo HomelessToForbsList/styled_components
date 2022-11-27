@@ -1,0 +1,12 @@
+@use '../index.scss';
+
+$header-color: index.$milk-grey;
+$text-color: index.$dark-navy;
+$main-color: index.$blue;
+$text-secondary: index.$middle-grey;
+
+.react-datepicker__day--outside-month{
+  color: $text-secondary !important;
+  font-size: 20;
+  font-weight: 700;
+}

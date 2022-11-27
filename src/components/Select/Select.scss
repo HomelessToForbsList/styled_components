@@ -1,0 +1,82 @@
+
+.react-select{
+  &-container{
+    width: 20px;
+    height: 20px;
+  }
+  &__control{
+    background-color: transparent !important;
+    border: none !important;
+    min-height: 20px !important;
+    &--is-focused{
+      border: none !important;
+      box-shadow: none !important;
+    }
+  }
+  &__value-container{
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+  }
+  &__placeholder{
+    display: none ;
+  }
+  &__indicator{
+    background-color: transparent !important;
+    padding: 0 !important;
+    width: 20px !important;
+    height: 20px !important;
+    justify-content: center !important;
+    align-items: center !important;
+    & >*{
+      display: flex;
+      justify-content: center;
+    align-items: center ;
+    }
+  }
+  &__indicator-separator{
+    display: none ;
+  }
+  &__menu{
+    width: auto !important;
+    top: 120% !important;
+    right: 50% !important;
+
+  }
+  &__dropdown--closed{
+    cursor: pointer !important;
+    rotate: 180deg;
+    transition: 0.5s !important;
+  }
+  &__dropdown--open{
+    cursor: pointer !important;
+    rotate: 0deg;
+    transition: 0.5s !important;
+  }
+  &__option{
+    white-space: nowrap !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    &--is-focused{
+      background-color: #fff !important;
+    }
+    &--is-selected{
+      background-color: #fff !important;
+      & > .option-wrapper > :first-child{
+        color: #10A8C9 !important;
+      }
+    }
+    & > .option-wrapper{
+      padding: 8px 12px;
+      &:hover{
+        background-color: rgb(210, 240, 253);
+      }
+      & > :first-child{
+        color: #333333;
+      }
+      & > :last-child{
+        color: #9CA4B3;
+      }
+    }
+  }
+}

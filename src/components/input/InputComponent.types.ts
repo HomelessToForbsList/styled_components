@@ -10,10 +10,10 @@ export type InputProps = {
   className?: string;
   disabled?: boolean;
   errorMessage?: string;
-  options?: string[];
+  options?: {value: string,label: string,subtitle?: string}[];
   onChange: (e: React.ChangeEvent<HTMLInputElement>)=>void;
   onFocus?: (e: React.FocusEvent<HTMLInputElement>)=>void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>)=>any;
-  onClick?: (arg: React.MouseEvent<HTMLElement> | string) => void;
+  onClick?: (value:string) => void;
 
 }
